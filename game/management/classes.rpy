@@ -1,8 +1,8 @@
 init python:
-
+    print()
     class NPC:
         def __init__(self, character, self_op = 10):
-            self.character = character
+            self.c = character
             self.opinions = {}
             self.opinions[character.name] = self_op
 
@@ -16,8 +16,8 @@ init python:
             return self.opinions[candidate]
 
     class Voter(NPC):
-        def __init__(self, character):
-            super().__init__(character)
+        def __init__(self, character, self_op = 10):
+            super().__init__(character, self_op)
             self.leading = character.name
             self.leading_op = self.opinions[character.name]
 
@@ -37,8 +37,9 @@ init python:
             return self.leading
 
     class Partner(Voter):
-        def __init__(self, character, base_love):
+        def __init__(self, character, base_love, self_op = 10):
             self.love = base_love
+            super().__init__(character, self_op)
 
         def set_love(self, love):
             self.love = love

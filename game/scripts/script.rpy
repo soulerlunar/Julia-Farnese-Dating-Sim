@@ -25,9 +25,9 @@ label start:
 
     # These display lines of dialogue.
 
-    j "You've created a new Ren'Py game."
+    dr.c "You've created a new Ren'Py game."
 
-    j "Once you add a story, pictures, and music, you can release it to the world!"
+    dr.c "Once you add a story, pictures, and music, you can release it to the world!"
 
     if day == 1:
         jump day_1
