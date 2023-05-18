@@ -20,7 +20,7 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show julius:
+    show julius upset:
         zoom 0.5
 
     # These display lines of dialogue.
