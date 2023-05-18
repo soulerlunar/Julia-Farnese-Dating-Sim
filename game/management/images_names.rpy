@@ -1,4 +1,7 @@
 init:
+    #backgrounds
+    image bg sistine = "backgrounds/surreal_sistine.png"
+
     #Julius images
     image julius = "julius/julius.png"
     image julius happy = "julius/julius.png"
