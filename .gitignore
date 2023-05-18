@@ -181,3 +181,4 @@ _wfCache
 log.txt 
 errors.txt 
 traceback.txt
+game/.DS_Store
