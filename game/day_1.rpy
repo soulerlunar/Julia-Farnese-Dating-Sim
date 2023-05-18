@@ -24,3 +24,14 @@ label day_1:
     # This ends the game.
 
     return
+
+label day_2:
+
+    scene bg room
+
+    show julius:
+        zoom 0.5
+    
+    j "This is day 2"
+
+    j "Get out of my chapel"
