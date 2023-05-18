@@ -4,7 +4,7 @@
 # name of the character.
 
 define j = Character("Julius")
-define day = 2
+define day = 1
 
 # The game starts here.
 
