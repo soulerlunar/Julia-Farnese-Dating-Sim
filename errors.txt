@@ -2,9 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 17: expected statement.
-    action SetVariable("x", 11)
-                      ^
+The label day_1 is defined twice, at File "game/scripts/day_1.rpyc", line 3:
+
+and File "game/scripts/day_openings.rpy", line 3:
+label day_1:
+
+
+The label day_2 is defined twice, at File "game/scripts/day_1.rpyc", line 28:
+
+and File "game/scripts/day_openings.rpy", line 28:
+label day_2:
+
 
 Ren'Py Version: Ren'Py 8.1.0.23051307
-Wed May 17 04:06:38 2023
+Wed May 24 17:20:00 2023

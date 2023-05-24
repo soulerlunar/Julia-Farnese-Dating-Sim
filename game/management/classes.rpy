@@ -3,7 +3,7 @@ init python:
     class NPC:
         def __init__(self, character, self_op = 10, candidate = False):
             self.c = character
-            self.candidate = 
+            self.candidate = candidate
             self.opinions = {}
             self.opinions[character.name] = self_op
             self.trusted = {}
@@ -17,10 +17,10 @@ init python:
         def set_opinion(self, candidate, opinion):
             self.opinions[candidate] = opinion
 
-        def add_opinion(self, candidate, opinion_mod):
-            if 
+        # def add_opinion(self, candidate, opinion_mod):
+        #     if 
 
-            self.opinions[candidate] += opinion_mod
+        #     self.opinions[candidate] += opinion_mod
 
         def get_opinion(self, candidate):
             return self.opinions[candidate]
