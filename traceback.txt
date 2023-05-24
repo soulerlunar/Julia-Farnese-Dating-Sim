@@ -1,0 +1,32 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/scripts/script.rpy", line 23, in script
+    show julius at halfsize, center
+  File "game/scripts/script.rpy", line 23, in <module>
+    show julius at halfsize, center
+NameError: name 'halfsize' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/scripts/script.rpy", line 23, in script
+    show julius at halfsize, center
+  File "/Users/noah/Desktop/renpy-8.1.0-sdk/renpy/ast.py", line 1428, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "/Users/noah/Desktop/renpy-8.1.0-sdk/renpy/ast.py", line 1387, in show_imspec
+    at_list = [ renpy.python.py_eval(i) for i in at_list ]
+  File "/Users/noah/Desktop/renpy-8.1.0-sdk/renpy/ast.py", line 1387, in <listcomp>
+    at_list = [ renpy.python.py_eval(i) for i in at_list ]
+  File "/Users/noah/Desktop/renpy-8.1.0-sdk/renpy/python.py", line 1153, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/Users/noah/Desktop/renpy-8.1.0-sdk/renpy/python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/scripts/script.rpy", line 23, in <module>
+    show julius at halfsize, center
+NameError: name 'halfsize' is not defined
+
+macOS-10.16-x86_64-i386-64bit x86_64
+Ren'Py 8.1.0.23051307
+Julia Farnese Dating Sim 1.0
+Thu May 18 14:59:53 2023

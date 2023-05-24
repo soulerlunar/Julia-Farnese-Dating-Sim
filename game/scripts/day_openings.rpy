@@ -1,20 +1,10 @@
-﻿# The script of the game goes in this file.
+﻿# The first day starts here
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-
-define j = Character("Julius")
-
-
-# The game starts here.
-
-label start:
+label day_1:
 
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
-
-    default x = 8
 
     scene bg room
 
@@ -27,13 +17,21 @@ label start:
 
     # These display lines of dialogue.
 
-    j "You've created a new Ren'Py game."
+    j "This is day 1."
 
-    j "Once you add a story, pictures, and music, you can release it to the world!"
-
-    if x > 10:
-        jump day_1
+    j "Alessandro is waiting for you!"
 
     # This ends the game.
 
     return
+
+label day_2:
+
+    scene bg room
+
+    show julius:
+        zoom 0.5
+    
+    j "This is day 2"
+
+    j "Get out of my chapel"
