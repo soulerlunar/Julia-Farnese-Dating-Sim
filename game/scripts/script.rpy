@@ -20,12 +20,11 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show julius upset:
-        zoom 0.5
+    show julius upset
 
     # These display lines of dialogue.
 
-    dr.c "You've created a new Ren'Py game."
+    dr.c "Just because your cousin is now a cardinal, doesn't mean that you can start making demands like that."
 
     dr.c "Once you add a story, pictures, and music, you can release it to the world!"
 

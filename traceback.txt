@@ -1,29 +1,32 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00start.rpy", line 189, in script
-    python:
-  File "renpy/common/00start.rpy", line 190, in <module>
-    renpy.execute_default_statement(True)
-Exception: store.quick_menu is being given a default a second time.
+  File "game/scripts/script.rpy", line 23, in script
+    show julius at halfsize, center
+  File "game/scripts/script.rpy", line 23, in <module>
+    show julius at halfsize, center
+NameError: name 'halfsize' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00start.rpy", line 189, in script
-    python:
-  File "/Users/noah/Desktop/renpy-8.1.0-sdk/renpy/ast.py", line 1138, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/Users/noah/Desktop/renpy-8.1.0-sdk/renpy/python.py", line 1122, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "renpy/common/00start.rpy", line 190, in <module>
-    renpy.execute_default_statement(True)
-  File "/Users/noah/Desktop/renpy-8.1.0-sdk/renpy/exports.py", line 3963, in execute_default_statement
-    i.execute_default(start)
-  File "game/screens.rpyc", line 267, in execute_default
-Exception: store.quick_menu is being given a default a second time.
+  File "game/scripts/script.rpy", line 23, in script
+    show julius at halfsize, center
+  File "/Users/noah/Desktop/renpy-8.1.0-sdk/renpy/ast.py", line 1428, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "/Users/noah/Desktop/renpy-8.1.0-sdk/renpy/ast.py", line 1387, in show_imspec
+    at_list = [ renpy.python.py_eval(i) for i in at_list ]
+  File "/Users/noah/Desktop/renpy-8.1.0-sdk/renpy/ast.py", line 1387, in <listcomp>
+    at_list = [ renpy.python.py_eval(i) for i in at_list ]
+  File "/Users/noah/Desktop/renpy-8.1.0-sdk/renpy/python.py", line 1153, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/Users/noah/Desktop/renpy-8.1.0-sdk/renpy/python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/scripts/script.rpy", line 23, in <module>
+    show julius at halfsize, center
+NameError: name 'halfsize' is not defined
 
 macOS-10.16-x86_64-i386-64bit x86_64
 Ren'Py 8.1.0.23051307
 Julia Farnese Dating Sim 1.0
-Thu May 18 13:40:10 2023
+Thu May 18 14:59:53 2023
