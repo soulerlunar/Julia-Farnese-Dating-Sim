@@ -1,48 +1,100 @@
 init python:
     print()
     class NPC:
-        def __init__(self, character, self_op = 10, candidate = False):
-            self.c = character
-            self.candidate = candidate
-            self.opinions = {}
-            self.opinions[character.name] = self_op
-            self.trusted = {}
+        def __init__(self, character, self_op = 90, candidate = False):
+            self.c = character #the character setter
+            self.name = character.name #own name
+            self.candidate = candidate #boolean whether is a papal candidate or not
+            self.opinions = {} #dicionary of character names and opinion values
+            # opinions must be between 0 and 100
+            self.opinions[character.name] = self_op #sets the opinion on self
+            self.trusted = [] #A list of trusted confidants
 
-        def normalize_op(self, candidate, opinion):
+        # Normalizes an NPCs opinion
+        # Params: person - an NPC to normalize opinion on
+        #
+        # return True if normalized, False if not
+        def normalize_op(self, person):
+            p_name = person.name
+            if not p_name in self.opinions:
+                #If opinion does not exist, cannot be normalized
+                return False
+
+            opinion = self.opinions[person.name]
             if opinion > 100:
-                opinion = 100
+                self.opinions[p_name] = 100
+                return True
             elif opinion < 0:
-                opinion = 0
+                self.opinions[p_name] = 0
+                return True
+            else:
+                return False
 
-        def set_opinion(self, candidate, opinion):
-            self.opinions[candidate] = opinion
+        # Sets the opinion on the given person
+        # Params: 
+        #   - person: an NPC to set opinion on
+        #   - opinion: an int to set opinion to
+        # 
+        def set_opinion(self, person, opinion):
+            self.opinions[person.name] = opinion
+            self.normalize_op(person)
 
-        # def add_opinion(self, candidate, opinion_mod):
-        #     if 
+        # Adds a value to an opinion on a person
+        # Params: 
+        #   - person: an NPC to set opinion on
+        #   - opinion_mod: an int to modify the opinon
+        # 
+        def add_opinion(self, person, opinion_mod):
+            p_name = person.name
+            if p_name in opinions:
+                self.opinions[p_name] = 0
 
-        #     self.opinions[candidate] += opinion_mod
+            self.opinions[person] += opinion_mod
+            self.normalize_op(person)
 
-        def get_opinion(self, candidate):
-            return self.opinions[candidate]
+        # Gets the opinion on the candidate
+        # 
+        # return: opinion score
+        def get_opinion(self, person):
+            p_name = person.name
+            return self.opinions[p_name]
 
     class Voter(NPC):
         def __init__(self, character, self_op = 10, candidate = True):
             super().__init__(character, self_op, candidate)
-            self.leading = character.name
-            self.leading_op = self.opinions[character.name]
+            self.leading = character.name #who is the voter's leading choice
+        
+        #gets the opinion on the leading candidate
+        #
+        # return: opinion on leading candidate
+        def get_leading_op(self):
+            return self.opinions[self.leading]
 
-        def set_opinion(self, candidate, opinion):
+        # Updates the tracked leading candidate if person is a candidate
+        # Params:
+        #   - person: person to check
+        #   - opinion: opinion on them
+        #
+        # Returns: True if updated, false if not
+        def update_leading(self, person, opinion):
+            if person.candidate and opinion > self.get_leading_op():
+                self.leading = candidate
+                self.leading_op = opinion
+                return True
+            else:
+                return False
+
+        # NPC Set opinion, but also updates leading candidate
+        def set_opinion(self, person, opinion):
             super().set_opinion(candidate, opinion)
-            if opinion > self.leading_op:
-                self.leading = candidate
-                self.leading_op = opinion
+            self.update_leading(person, opinion)
 
-        def set_opinion(self, candidate, opinion_mod):
+        # NPC Add opinion, but also updates leading candidate
+        def add_opinion(self, person, opinion_mod):
             super().add_opinion(candidate, opinion_mod)
-            if self.opinions[candidate] > self.leading_op:
-                self.leading = candidate
-                self.leading_op = opinion
+            self.update_leading(person, opinion)
 
+        #TODO
         def cast_vote(self):
             return self.leading
 
