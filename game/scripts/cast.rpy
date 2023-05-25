@@ -1,4 +1,9 @@
 init python:
+    #BASIC
+
+    julia = Character(None, what_italic=True)
+    narrate = Character("")
+    
     #DATABLE PARTNERS
 
     #Giuliano della Rovere

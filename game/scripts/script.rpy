@@ -19,6 +19,8 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
+    julia "This is my first day in the Sistine. I suppose I should go and find Alessandro."
+
     show alessandro
 
     # These display lines of dialogue.
