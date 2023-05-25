@@ -1,13 +1,16 @@
 init python:
-    print()
+    
+    julia_name = "Julia"
+
     class NPC:
-        def __init__(self, character, self_op = 90, candidate = False):
+        def __init__(self, character, self_op = 90, julia_op = 30, candidate = False):
             self.c = character #the character setter
             self.name = character.name #own name
             self.candidate = candidate #boolean whether is a papal candidate or not
             self.opinions = {} #dicionary of character names and opinion values
             # opinions must be between 0 and 100
             self.opinions[character.name] = self_op #sets the opinion on self
+            self.opinions[julia_name] = julia_op #sets the opinion on self
             self.trusted = [] #A list of trusted confidants
 
         # Normalizes an NPCs opinion
@@ -60,8 +63,8 @@ init python:
             return self.opinions[p_name]
 
     class Voter(NPC):
-        def __init__(self, character, self_op = 10, candidate = True):
-            super().__init__(character, self_op, candidate)
+        def __init__(self, character, self_op = 90, julia_op = 30, candidate = True):
+            super().__init__(character, self_op, julia_op, candidate)
             self.leading = character.name #who is the voter's leading choice
         
         #gets the opinion on the leading candidate
@@ -99,15 +102,16 @@ init python:
             return self.leading
 
     class Partner(Voter):
-        def __init__(self, character, base_love, self_op = 10, candidate = True):
+        def __init__(self, character, base_love, self_op = 100, julia_op = 30, candidate = True):
             self.love = base_love
-            super().__init__(character, self_op, candidate)
+            super().__init__(character, self_op, julia_op, candidate)
 
+        #All love functions are just an easy way to modify the opinion on Julia
         def set_love(self, love):
-            self.love = love
+            self.opinions[julia_name] = love
 
         def add_love(self, love_mod):
-            self.love = love_mod
+            self.opinions[julia_name] += love_mod
 
         def get_love(self):
-            return self.love
+            return self.opinions[julia_name] 
