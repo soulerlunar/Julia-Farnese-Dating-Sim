@@ -15,3 +15,4 @@ init python:
     
 
     #INTRUDERS
+    caterina = NPC(Character("Caterina Sforza-Riario"), julia_op=40)

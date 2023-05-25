@@ -6,20 +6,29 @@ label day_1:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg room
+    scene bg sistine
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show julius:
-        zoom 0.5
+    show alessandro
 
     # These display lines of dialogue.
 
-    dr.c "This is day 1."
+    alessandro.c "Alright, here we go. Day 1."
 
-    dr.c "Alessandro is waiting for you!"
+    alessandro.c "We've got this. Time to build up our family."
+
+    alessandro.c "Gonna meet a lot of new people today."
+
+    alessandro.c "Oh, speaking of which, uh, here comes Caterina Sforza. Seems we may be starting that early."
+
+    hide alessandro
+
+    show caterina
+
+    caterina.c "Hello there. Nice to meet you."
 
     # This ends the game.
 
