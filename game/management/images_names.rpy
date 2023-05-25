@@ -23,3 +23,9 @@ init:
 
     #piccolomini
     image piccolomini = "piccolomini.png"
+
+    #riario
+    image riario = "riario.png"
+
+    #cesare
+    image cesare = "cesare.png"
