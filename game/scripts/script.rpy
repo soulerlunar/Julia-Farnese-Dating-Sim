@@ -3,7 +3,6 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define j = Character("Julius")
 define day = 1
 
 # The game starts here.
@@ -20,13 +19,15 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show julius upset
+    show alessandro
 
     # These display lines of dialogue.
 
-    dr.c "Just because your cousin is now a cardinal, doesn't mean that you can start making demands like that."
+    alessandro.c "Good morning, dear sister. Or should I say Dioneo."
 
-    dr.c "Once you add a story, pictures, and music, you can release it to the world!"
+    alessandro.c "I'm glad we've made it this far, but let's best be careful."
+
+    alessandro.c "If anyone figures out who you are, we're in big trouble."
 
     if day == 1:
         jump day_1

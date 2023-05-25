@@ -102,8 +102,7 @@ init python:
             return self.leading
 
     class Partner(Voter):
-        def __init__(self, character, base_love, self_op = 100, julia_op = 30, candidate = True):
-            self.love = base_love
+        def __init__(self, character, self_op = 100, julia_op = 30, candidate = True):
             super().__init__(character, self_op, julia_op, candidate)
 
         #All love functions are just an easy way to modify the opinion on Julia

@@ -17,9 +17,9 @@ label day_1:
 
     # These display lines of dialogue.
 
-    j "This is day 1."
+    dr.c "This is day 1."
 
-    j "Alessandro is waiting for you!"
+    dr.c "Alessandro is waiting for you!"
 
     # This ends the game.
 
@@ -32,6 +32,6 @@ label day_2:
     show julius:
         zoom 0.5
     
-    j "This is day 2"
+    dr.c "This is day 2"
 
-    j "Get out of my chapel"
+    dr.c "Get out of my chapel"
