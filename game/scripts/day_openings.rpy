@@ -22,13 +22,11 @@ label day_1:
 
     alessandro.c "Gonna meet a lot of new people today."
 
-    alessandro.c "Oh, speaking of which, uh, here comes Caterina Sforza. Seems we may be starting that early."
+    alessandro.c "You should probably decide who you want to speak to."
 
     hide alessandro
 
-    show caterina
-
-    caterina.c "Hello there. Nice to meet you."
+    call interact_menu(npcs, "d1")
 
     # This ends the game.
 

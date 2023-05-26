@@ -1,11 +1,11 @@
 init python:
     
-    julia_name = "Julia"
+    julia_name = "julia"
 
     class NPC:
-        def __init__(self, character, self_op = 90, julia_op = 30, candidate = False):
+        def __init__(self, name, character, self_op = 90, julia_op = 30, candidate = False):
             self.c = character #the character setter
-            self.name = character.name #own name
+            self.name = name #internal name for tracking purposes
             self.candidate = candidate #boolean whether is a papal candidate or not
             self.opinions = {} #dicionary of character names and opinion values
             # opinions must be between 0 and 100
@@ -63,9 +63,9 @@ init python:
             return self.opinions[p_name]
 
     class Voter(NPC):
-        def __init__(self, character, self_op = 90, julia_op = 30, candidate = True):
-            super().__init__(character, self_op, julia_op, candidate)
-            self.leading = character.name #who is the voter's leading choice
+        def __init__(self, name, character, self_op = 90, julia_op = 30, candidate = True):
+            super().__init__(name, character, self_op, julia_op, candidate)
+            self.leading = name #who is the voter's leading choice
         
         #gets the opinion on the leading candidate
         #
@@ -81,7 +81,7 @@ init python:
         # Returns: True if updated, false if not
         def update_leading(self, person, opinion):
             if person.candidate and opinion > self.get_leading_op():
-                self.leading = candidate
+                self.leading = candidate.name
                 self.leading_op = opinion
                 return True
             else:
@@ -102,8 +102,8 @@ init python:
             return self.leading
 
     class Partner(Voter):
-        def __init__(self, character, self_op = 100, julia_op = 30, candidate = True):
-            super().__init__(character, self_op, julia_op, candidate)
+        def __init__(self, name, character, self_op = 100, julia_op = 30, candidate = True):
+            super().__init__(name, character, self_op, julia_op, candidate)
 
         #All love functions are just an easy way to modify the opinion on Julia
         def set_love(self, love):
