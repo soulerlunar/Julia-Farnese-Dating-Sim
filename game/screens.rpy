@@ -207,10 +207,15 @@ style input:
 
 screen choice(items):
     style_prefix "choice"
-
-    vbox:
-        for i in items:
-            textbutton i.caption action i.action
+    frame:
+        area (350, 100, 1250, 750)
+        viewport:
+            if len(items) >= 9:
+                scrollbars "vertical"
+            vbox:
+                spacing 40
+                for i in items:
+                    textbutton i.caption action i.action
 
 
 style choice_vbox is vbox
