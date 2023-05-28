@@ -18,3 +18,6 @@ init 2 python:
 
     independent_genoa = PromiseCategory("Independent Genoa")
     independent_genoa.add_influenced(gentili, 25)
+
+    protect_siena = PromiseCategory("Protect Siena")
+    protect_siena.add_influenced(piccolomini, 25)
