@@ -179,6 +179,10 @@ init python:
         #
         # Returns: True if updated, false if not
         def comp_leading(self, person):
+            if not isinstance(person, NPC):
+                #TODO FIX THIS
+                return False
+
             if not person.candidate:
                 return False
             if self.get_candidacy_score(person) > self.get_leading_op():
