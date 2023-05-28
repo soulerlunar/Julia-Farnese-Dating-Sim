@@ -18,12 +18,18 @@ init python:
             self._papal_ops[name] = self_op #sets the opinion on self
             self._opinions[julia_name] = julia_op #sets the opinion on self
 
+        def conf_name(self, person):
+            if isinstance(person, NPC):
+                return person.name
+            else:
+                return person
+
         # Normalizes an NPCs opinion
         # Params: person - an NPC to normalize opinion on
         #
         # return True if normalized, False if not
         def normalize_op(self, person):
-            p_name = person.name
+            p_name = self.conf_name(person)
             if not p_name in self._opinions:
                 #If opinion does not exist, cannot be normalized
                 return False
@@ -44,7 +50,8 @@ init python:
         #   - opinion: an int to set opinion to
         # 
         def set_opinion(self, person, opinion):
-            self._opinions[person.name] = opinion
+            p_name = self.conf_name(person)
+            self._opinions[p_name] = opinion
             self.normalize_op(person)
 
         # Adds a value to an opinion on a person
@@ -53,7 +60,7 @@ init python:
         #   - opinion_mod: an int to modify the opinon
         # 
         def add_opinion(self, person, opinion_mod):
-            p_name = person.name
+            p_name = self.conf_name(person)
             if not p_name in self._opinions:
                 self._opinions[p_name] = 0
 
@@ -64,7 +71,7 @@ init python:
         # 
         # return: opinion score
         def get_opinion(self, person):
-            p_name = person.name
+            p_name = self.conf_name(person)
             if not p_name in self._opinions:
                 return 0
             return self._opinions[p_name]
@@ -75,7 +82,8 @@ init python:
         #   - opinion: an int to set opinion to
         # 
         def set_papal_op(self, person, opinion):
-            self._papal_ops[person.name] = opinion
+            p_name = self.conf_name(person)
+            self._papal_ops[p_name] = opinion
 
         # Adds a value to an opinion on papability for a person
         # Params: 
@@ -83,7 +91,7 @@ init python:
         #   - opinion_mod: an int to modify the opinon
         # 
         def add_papal_op(self, person, opinion_mod):
-            p_name = person.name
+            p_name = self.conf_name(person)
             if not p_name in self._papal_ops:
                 self._papal_ops[p_name] = 0
 
@@ -94,7 +102,7 @@ init python:
         # 
         # return: papal opinion score
         def get_papal_op(self, person):
-            p_name = person.name
+            p_name = self.conf_name(person)
             if not p_name in self._papal_ops:
                 return 0
             return self._papal_ops[p_name]

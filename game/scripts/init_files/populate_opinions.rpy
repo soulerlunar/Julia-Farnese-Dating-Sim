@@ -46,7 +46,7 @@ init 10 python:
 
     #MEDICI
     medici.set_opinion(dr, 25)
-    medici.set_opinion(borgia, 45)
+    medici.set_opinion(borgia, 55)
     medici.set_opinion(sforza, 70)
     
     medici.set_opinion(riario, 30)

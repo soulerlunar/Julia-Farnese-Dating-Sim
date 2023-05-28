@@ -29,4 +29,4 @@ init:
     image riario = "riario.png"
 
     #cesare
-    image cesare = "cesare.png"
+    image cesare = "valentino.png"

@@ -7,7 +7,7 @@ init 1 python:
 
     j_int = Character(None, what_italic=True)
     julia = Character("Dioneo")
-    narrator = Character("")
+    narrator = Character("", what_bold=True)
 
     # Params:
     # - voter: boolean
