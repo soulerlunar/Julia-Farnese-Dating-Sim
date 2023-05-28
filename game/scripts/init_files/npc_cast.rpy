@@ -63,14 +63,24 @@ init 1 python:
     register_npc(piccolomini, True)
 
     #Giovanni de Medici
-    medici = Voter("medici", Character("Giovanni"), julia_op = 70)
-    #npcs.append(medici)
+    medici = Voter("medici", Character("Cardinal Medici"), julia_op = 70)
     register_npc(medici, True, True)
 
     #Giovanni Colonna
     colonna = Voter("colonna", Character("Cardinal Colonna"))
-    #npcs.append(colonna)
     register_npc(colonna, True)
+
+    #Oliviero Carafa
+    carafa = Voter("carafa", Character("Cardinal Carafa"))
+    register_npc(carafa, True)
+
+    #Gianbattista Orsini
+    orsini = Voter("orsini", Character("Cardinal Orsini"))
+    register_npc(orsini, True)
+
+    #Antonio Gentili
+    gentili = Voter("Gentili", Character("Cardinal Gentili"))
+    register_npc(gentili, True)
 
     #------
     #INTRUDERS
