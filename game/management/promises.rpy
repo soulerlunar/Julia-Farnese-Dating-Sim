@@ -46,7 +46,10 @@ init python:
                 promise.contradictions.append(self.name)
 
         def generate_promise(self, promiser, promisee):
-            promise = Promise(self.name, promiser, promisee, self.influences[promisee.name])
+            if promisee.name in self.influences:
+                promise = Promise(self.name, promiser, promisee, self.influences[promisee.name])
+            else:
+                promise = Promise(self.name, promiser, promisee, 0)
             return promise
 
         def contradicts(self, p_name):
