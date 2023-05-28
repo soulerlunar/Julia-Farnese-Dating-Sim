@@ -44,6 +44,8 @@ label riario_d1:
         
         riario.c "And my sister-in-law, Caterina Sforza, is the obvious choice for is papal hostess. She’s done it before, and is beloved by Rome."
 
+        $ riario.add_opinion(julia_name, -5)
+
         julia "…Of course, Your Eminence. Though, if I may, the Farnese family is of ancient and noble Roman blood."
         
         julia "This would be a sure way to win Rome’s favor, especially given your uncle’s ties to the French."
@@ -79,6 +81,7 @@ label riario_d1:
 
                 $ promise = drive_out_colonna.generate_promise(dr, orsini)
                 $ promise.make()
+                $ riario.add_opinion(julia_name, -5)
 
                 riario.c "Hm. I will take this into consideration."
 
@@ -108,6 +111,7 @@ label riario_d1:
 
                 $ promise = protect_siena.generate_promise(dr, piccolomini)
                 $ promise.make()
+                $ riario.add_opinion(julia_name, 5)
 
                 cesare.c "Hm. I will take this into consideration."
 
@@ -116,7 +120,7 @@ label riario_d1:
         label .after_influence:
 
             riario.c "Now get back to work."
-            
+
             julia "Of course your Eminence. My apologies."
 
         return

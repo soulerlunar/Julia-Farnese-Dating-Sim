@@ -29,17 +29,21 @@ label borgia_d1:
 
     hide borgia
 
-    show borgia_happy
+    show borgia happy
 
     borgia.c "Julia Farnese…Yes, I have heard she is one of the most beautiful women in Rome, and this portrait exemplifies that to be sure."
 
-    julia "Forgive me if this is presumptuous, Your Eminence,  but as you have seen, Julia is a very beautiful young woman much beloved by Rome. She would be a great boon to you if you were to choose her as your papal hostess."
+    julia "Forgive me if this is presumptuous, Your Eminence,  but as you have seen, Julia is a very beautiful young woman much beloved by Rome."
+    
+    julia "She would be a great boon to you if you were to choose her as your papal hostess."
 
     borgia.c "Hm…I am not yet decided on a hostess, though I have heard that Julia is married to an Orsini, is she not?"
 
     j_int "It seems the subject of a mistress is already on his mind, if he’s already asking me about my husband."
 
-    julia "Yes, though that should be no trouble to you, Your Eminence. Orsino Orsini is a very weak-willed man, and could not refuse Julia from anything she decided upon. Nor could he refuse the man on the highest throne in all of Europe."
+    julia "Yes, though that should be no trouble to you, Your Eminence. Orsino Orsini is a very weak-willed man, and could not refuse Julia from anything she decided upon."
+    
+    julia "Nor could he refuse the man on the highest throne in all of Europe."
 
     menu:
         borgia.c "And do you believe that I will be that man?"
@@ -53,11 +57,17 @@ label borgia_d1:
 
         julia "And I would be willing to help ensure it, Your Eminence."
 
+        $ borgia.add_opinion(julia_name, 10)
+
         borgia.c "In what manner?"
 
-        julia "My family is well-connected in Rome and beloved by the Mob. I’m sure if our influence was behind you, we could sway our fellow Romans to support you as well. We are kin with the Orsini through Julia’s marriage, after all."
+        julia "My family is well-connected in Rome and beloved by the Mob. I’m sure if our influence was behind you, we could sway our fellow Romans to support you as well."
+        
+        julia "We are kin with the Orsini through Julia’s marriage, after all."
 
-        borgia.c "That is useful indeed. The enmity that much of Italy has towards my family for our Spanish roots will likely cause trouble. Swaying the Mob would be very helpful for the safekeeping of my family."
+        borgia.c "That is useful indeed. The enmity that much of Italy has towards my family for our Spanish roots will likely cause trouble."
+        
+        borgia.c "Swaying the Mob would be very helpful for the safekeeping of my family."
 
         julia "And with Julia Farnese’s incomparable beauty by your side as your papal hostess, the city of Rome would certainly fall at your feet and welcome your papacy with open arms."
 
@@ -65,7 +75,9 @@ label borgia_d1:
 
         j_int "How easily men fall silent in the face of a woman’s charms, even when they think she is not present!"
 
-        julia "I would be most willing to help Your Eminence in any tasks you require, though of course, the Farneses’ influence will only be more powerful the stronger our family is. It is no secret that we have fallen on hard times, but if that were to be rectified…"
+        julia "I would be most willing to help Your Eminence in any tasks you require, though of course, the Farneses’ influence will only be more powerful the stronger our family is."
+        
+        julia "It is no secret that we have fallen on hard times, but if that were to be rectified…"
 
         borgia.c "Yes, I believe your cousin, Alessandro, owes me 5,000 florins. And of course, as the pope with his beautiful sister at my side, the rest of your family’s debts would be a trifle."
 
@@ -79,9 +91,11 @@ label borgia_d1:
 
     label .c2:
 
-        hide borgia_happy
+        hide borgia happy
 
-        show borgia
+        show borgia upset
+
+        $ borgia.add_opinion(julia_name, -10)
 
         borgia.c "Well the election is not a time for neutrality, Dioneo, and if your cousin wants me to make her my papal hostess, I will need the papacy in order to do so."
 
@@ -91,6 +105,8 @@ label borgia_d1:
 
         j_int "The truth is, I’m not yet sure Borgia can win. And a Spaniard on the throne of St. Peter? It’s nearly unthinkable!"
 
-        j_int "But if I don’t support Borgia and he does win, then I’ll have lost my chance to gain anything. And Borgia is more than competent and knows Alessandro well…this could be our chance for a cardinalship or an even greater benefice someday."
+        j_int "But if I don’t support Borgia and he does win, then I’ll have lost my chance to gain anything."
+        
+        j_int "And Borgia is more than competent and knows Alessandro well…this could be our chance for a cardinalship or an even greater benefice someday."
 
         return
