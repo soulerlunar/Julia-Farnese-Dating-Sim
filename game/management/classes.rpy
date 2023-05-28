@@ -7,13 +7,15 @@ init python:
             self.c = character #the character setter
             self.name = name #internal name for tracking purposes
             self.candidate = candidate #boolean whether is a papal candidate or not
-            self.opinions = {} #dicionary of character names and opinion values
+            self._opinions = {} #dicionary of character names and opinion values
             # opinions must be between 0 and 100
-            self.papal_ops = {}
+            self._papal_ops = {}
             self.trusted = [] #A list of trusted confidants
+            self._promises_given = []
+            self._promises_made = []
 
-            self.opinions[character.name] = self_op #sets the opinion on self
-            self.opinions[julia_name] = julia_op #sets the opinion on self
+            self._opinions[character.name] = self_op #sets the opinion on self
+            self._opinions[julia_name] = julia_op #sets the opinion on self
 
         # Normalizes an NPCs opinion
         # Params: person - an NPC to normalize opinion on
@@ -21,16 +23,16 @@ init python:
         # return True if normalized, False if not
         def normalize_op(self, person):
             p_name = person.name
-            if not p_name in self.opinions:
+            if not p_name in self._opinions:
                 #If opinion does not exist, cannot be normalized
                 return False
 
-            opinion = self.opinions[person.name]
+            opinion = self._opinions[person.name]
             if opinion > 100:
-                self.opinions[p_name] = 100
+                self._opinions[p_name] = 100
                 return True
             elif opinion < 0:
-                self.opinions[p_name] = 0
+                self._opinions[p_name] = 0
                 return True
             else:
                 return False
@@ -41,7 +43,7 @@ init python:
         #   - opinion: an int to set opinion to
         # 
         def set_opinion(self, person, opinion):
-            self.opinions[person.name] = opinion
+            self._opinions[person.name] = opinion
             self.normalize_op(person)
 
         # Adds a value to an opinion on a person
@@ -51,10 +53,10 @@ init python:
         # 
         def add_opinion(self, person, opinion_mod):
             p_name = person.name
-            if not p_name in self.opinions:
-                self.opinions[p_name] = 0
+            if not p_name in self._opinions:
+                self._opinions[p_name] = 0
 
-            self.opinions[person] += opinion_mod
+            self._opinions[person] += opinion_mod
             self.normalize_op(person)
 
         # Gets the opinion on a person
@@ -62,7 +64,7 @@ init python:
         # return: opinion score
         def get_opinion(self, person):
             p_name = person.name
-            return self.opinions[p_name]
+            return self._opinions[p_name]
 
         # Sets the papability opinion on the given person
         # Params: 
@@ -70,7 +72,7 @@ init python:
         #   - opinion: an int to set opinion to
         # 
         def set_papal_op(self, person, opinion):
-            self.papal_ops[person.name] = opinion
+            self._papal_ops[person.name] = opinion
 
         # Adds a value to an opinion on papability for a person
         # Params: 
@@ -79,8 +81,8 @@ init python:
         # 
         def add_papal_op(self, person, opinion_mod):
             p_name = person.name
-            if not p_name in self.papal_ops:
-                self.papal_ops[p_name] = 0
+            if not p_name in self._papal_ops:
+                self._papal_ops[p_name] = 0
 
             self.opinions[person] += opinion_mod
             self.normalize_op(person)
@@ -90,10 +92,37 @@ init python:
         # return: papal opinion score
         def get_papal_op(self, person):
             p_name = person.name
-            return self.papal_ops[p_name]
+            return self._papal_ops[p_name]
 
         def get_candidacy_score(self, person):
             return self.get_opinion(person) * self.get_papal_op(person)
+
+        #Adds a promise to the made promises list
+        def make_promise(self, promise):
+            self._promises_made.append(promise)
+
+        #Removes a promise from the made promises list
+        def unmake_promise(self, promise):
+            self._promises_made.remove(promise)
+
+        def receive_promise(self, promise):
+            self.add_papal_op(promise.promiser, promise.value)
+            self._promises_given.append(promise)
+
+        #Removes a previously recieved promise
+        def lose_promise(self, promise):
+            self.add_papal_op(promise.promiser, -1 * promise.value)
+            self._promises_given.remove(promise)
+
+
+        #When learning about a promise, one should process what it means
+        def process_promise(self, promise):
+            for p in self._promises_given:
+                #same person promising
+                if p.promiser == promise.promiser:
+                    if promise_types[p.name].contradicts(promise.name):
+                        p.broken()
+
 
         # Passes an opinion onto another NPC
         # Params:
@@ -168,10 +197,10 @@ init python:
 
         #All love functions are just an easy way to modify the opinion on Julia
         def set_love(self, love):
-            self.opinions[julia_name] = love
+            self.set_opinion(julia_name, love)
 
         def add_love(self, love_mod):
-            self.opinions[julia_name] += love_mod
+            self.add_opinion(julia_name, love)
 
         def get_love(self):
-            return self.opinions[julia_name]
+            return self.get_opinion(julia_name)
