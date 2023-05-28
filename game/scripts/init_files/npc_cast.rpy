@@ -25,11 +25,11 @@ init 1 python:
 
     #Alessandro Farnese
     alessandro = NPC("alessandro", Character("Alessandro"), julia_op = 90)
-    npcs.append(borgia)
+    npcs.append(alessandro)
 
     #Brother Annio
     annio = NPC("annio", Character("Brother Annio"), julia_op = 50)
-    npcs.append(borgia)
+    npcs.append(annio)
 
     #Cesare Borgia
     cesare = Voter("cesare", Character("Cesare"), julia_op = 70)
@@ -64,3 +64,6 @@ init 1 python:
     #Caterina Sforza-Riario
     caterina = NPC("caterina", Character("Caterina Sforza-Riario"), julia_op=40)
     npcs.append(caterina)
+
+    for npc in npcs:
+        print(npc.name)

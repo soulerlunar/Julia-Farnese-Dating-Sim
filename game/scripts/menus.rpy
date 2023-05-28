@@ -7,4 +7,4 @@ label interact_menu(npc_list, event_code):
         narrator("Who must I speak with?", interact=False)
         result = renpy.display_menu(options)
 
-        renpy.jump(result + "_" + event_code)
+        renpy.call(result + "_" + event_code)

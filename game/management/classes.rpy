@@ -62,6 +62,22 @@ init python:
             p_name = person.name
             return self.opinions[p_name]
 
+        # Passes an opinion onto another NPC
+        # Params:
+        # - confidant: an NPC to confide to
+        # - thought: a tuple (person, opinion) to share
+        #
+        def confide(self, confidant, thought):
+            multiplier = 0
+            conf_op = confidant.get_opinion(self) #confidant's opinion of confider
+            if conf_op >= 60:
+                multiplier = conf_op / 100
+            else:
+                multiplier = (conf_op / 100) ** 2
+
+            confidant.add_opinion(thought[0],thought[1] * multipler)
+
+
     class Voter(NPC):
         def __init__(self, name, character, self_op = 90, julia_op = 30, candidate = True):
             super().__init__(name, character, self_op, julia_op, candidate)
