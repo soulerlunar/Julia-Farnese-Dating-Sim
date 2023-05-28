@@ -14,7 +14,8 @@ init python:
             self._promises_given = []
             self._promises_made = []
 
-            self._opinions[character.name] = self_op #sets the opinion on self
+            self._opinions[name] = self_op #sets the opinion on self
+            self._papal_ops[name] = self_op #sets the opinion on self
             self._opinions[julia_name] = julia_op #sets the opinion on self
 
         # Normalizes an NPCs opinion
@@ -64,6 +65,8 @@ init python:
         # return: opinion score
         def get_opinion(self, person):
             p_name = person.name
+            if not p_name in self._opinions:
+                return 0
             return self._opinions[p_name]
 
         # Sets the papability opinion on the given person
@@ -84,7 +87,7 @@ init python:
             if not p_name in self._papal_ops:
                 self._papal_ops[p_name] = 0
 
-            self.opinions[person] += opinion_mod
+            self._papal_ops[p_name] += opinion_mod
             self.normalize_op(person)
 
         # Gets the opinion on a candidate's papability
@@ -92,10 +95,19 @@ init python:
         # return: papal opinion score
         def get_papal_op(self, person):
             p_name = person.name
+            if not p_name in self._papal_ops:
+                return 0
             return self._papal_ops[p_name]
 
         def get_candidacy_score(self, person):
-            return self.get_opinion(person) * self.get_papal_op(person)
+            if isinstance(person, NPC):
+                op = self.get_opinion(person)
+                p_op = self.get_papal_op(person)
+            else:
+                op = self._opinions[person]
+                p_op = self._papal_ops[person]
+            
+            return (op / 80) * p_op
 
         #Adds a promise to the made promises list
         def make_promise(self, promise):
@@ -162,7 +174,7 @@ init python:
             if not person.candidate:
                 return False
             if self.get_candidacy_score(person) > self.get_leading_op():
-                self.leading = candidate.name
+                self.leading = person.name
                 return True
             else:
                 return False
@@ -178,12 +190,12 @@ init python:
             self.comp_leading(person)
 
         # NPC Set papability opinion, but also updates leading candidate
-        def set_opinion(self, person, opinion):
+        def set_papal_op(self, person, opinion):
             super().set_papal_op(person, opinion)
             self.comp_leading(person)
 
         # NPC Add papability opinion, but also updates leading candidate
-        def add_opinion(self, person, opinion_mod):
+        def add_papal_op(self, person, opinion_mod):
             super().add_papal_op(person, opinion_mod)
             self.comp_leading(person)
 

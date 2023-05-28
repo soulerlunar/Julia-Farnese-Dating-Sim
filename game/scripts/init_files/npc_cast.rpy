@@ -1,69 +1,80 @@
 init 1 python:
     #BASIC
 
-    npcs = []
+    npcs = {}
     voters = []
+    too_young_cards = []
 
     j_int = Character(None, what_italic=True)
     julia = Character("Dioneo")
     narrator = Character("")
+
+    # Params:
+    # - voter: boolean
+    #
+    def register_npc(npc, voter=True, too_young=False):
+        npcs[npc.name] = npc
+        if voter:
+            voters.append(npc)
+        if too_young:
+            too_young_cards.append(npc)
 
     #------    
     #DATABLE PARTNERS
 
     #Giuliano della Rovere
     dr = Partner("julius", Character("Cardinal della Rovere"))
-    npcs.append(dr)
-    voters.append(dr)
+    register_npc(dr, True)
 
     #Rodrigo Borgia
     borgia = Partner("borgia", Character("Cardinal Borgia"))
-    npcs.append(borgia)
-    voters.append(borgia)
+    register_npc(borgia, True)
+
+    sforza = Voter("sforza", Character("Cardinal Sforza"))
+    register_npc(sforza, True, True)
 
     #FUNCTIONARIES
 
     #Alessandro Farnese
     alessandro = NPC("alessandro", Character("Alessandro"), julia_op = 90)
-    npcs.append(alessandro)
+    register_npc(alessandro, False, True)
 
     #Brother Annio
     annio = NPC("annio", Character("Brother Annio"), julia_op = 50)
-    npcs.append(annio)
+    register_npc(annio, False)
 
     #Cesare Borgia
-    cesare = Voter("cesare", Character("Cesare"), julia_op = 70)
-    npcs.append(cesare)
+    cesare = NPC("cesare", Character("Cesare"), julia_op = 70)
+    register_npc(cesare, False, True)
+
+    #Mario Maffei
+    mario = NPC("mario", Character("Mario Maffei"))
+    register_npc(mario, False)
 
     #------
     #VOTERS
 
     #Raffaele Riario
     riario = Voter("riario", Character("Cardinal Riario"))
-    npcs.append(riario)
-    voters.append(riario)
+    register_npc(riario, True, True)
 
     #Francesco Piccolomini
     piccolomini = Voter("piccolomini", Character("Cardinal Piccolomini"), self_op = 70)
-    npcs.append(piccolomini)
-    voters.append(piccolomini)
+    register_npc(piccolomini, True)
 
     #Giovanni de Medici
     medici = Voter("medici", Character("Giovanni"), julia_op = 70)
-    npcs.append(medici)
-    voters.append(medici)
+    #npcs.append(medici)
+    register_npc(medici, True, True)
 
     #Giovanni Colonna
     colonna = Voter("colonna", Character("Cardinal Colonna"))
-    npcs.append(colonna)
-    voters.append(colonna)
+    #npcs.append(colonna)
+    register_npc(colonna, True)
 
     #------
     #INTRUDERS
 
     #Caterina Sforza-Riario
     caterina = NPC("caterina", Character("Caterina Sforza-Riario"), julia_op=40)
-    npcs.append(caterina)
-
-    for npc in npcs:
-        print(npc.name)
+    register_npc(caterina, False)

@@ -26,7 +26,11 @@ label day_1:
 
     hide alessandro
 
-    call interact_menu(npcs, "d1")
+    $ d1_talkable = [dr, borgia, cesare, riario, caterina]
+
+    call interact_menu(d1_talkable, "d1")
+
+    call vote_counting
 
     # This ends the game.
 
