@@ -129,7 +129,7 @@ label day_1:
 
     hide alessandro
 
-    $ d1_talkable = [dr, borgia, cesare, riario, caterina]
+    $ d1_talkable = [dr, borgia, cesare, riario, caterina, piccolomini]
 
     call interact_menu(d1_talkable, "d1")
 

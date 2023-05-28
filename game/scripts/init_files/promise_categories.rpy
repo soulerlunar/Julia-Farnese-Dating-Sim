@@ -3,9 +3,11 @@ init 2 python:
 
     papabile = PromiseCategory("papabile")
     defensive_vote = PromiseCategory("defensive")
+    piccolomentum = PromiseCategory("piccolomentum")
     for npc in npcs.values():
         papabile.add_influenced(npc, 40)
         defensive_vote.add_influenced(npc, 20)
+        piccolomentum.add_influenced(npc, 100)
 
     vice_chancellor = PromiseCategory("Vice Chancellor")
     vice_chancellor.add_influenced(medici, 30)
