@@ -36,11 +36,11 @@ label julius_d1:
 
     menu:
         "[[show him the portrait of Julia Farnese]":
-            jump.c1
+            jump .c1
         "I know you have much sway with Cardinal Nanni…":
             jump .c2
         "I must return to my duties.":
-            jump.conclusion
+            jump .conclusion
 
 
     label .c1:
