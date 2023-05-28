@@ -3,9 +3,13 @@ label caterina_d1:
 
     j_int "I know Caterina Sforza. I watched her in her days as Papal Hostess, and she ran Pope Sixtus’ home with a cool efficiency."
 
-    j_int "She’s not meant to be in here, just as, at the last election, she was not “meant” to point a cannon at the Sistine, but such are her ways, I suppose. I admire her—a woman with power in her own right, something quite rare in this world."
+    j_int "She’s not meant to be in here, just as, at the last election, she was not “meant” to point a cannon at the Sistine, but such are her ways, I suppose."
+    
+    j_int "I admire her—a woman with power in her own right, something quite rare in this world."
 
-    j_int "She’s vicious. Her uncle, Cardinal Ascanio Sforza, is here as a voter, and she’s likely here to support him in whatever he does. She’d be a valuable ally and, perhaps more importantly, she could be a way of getting to Cardinal Sforza, that headstrong man."
+    j_int "She’s vicious. Her uncle, Cardinal Ascanio Sforza, is here as a voter, and she’s likely here to support him in whatever he does."
+    
+    j_int "She’d be a valuable ally and, perhaps more importantly, she could be a way of getting to Cardinal Sforza, that headstrong man."
 
     j_int "I’m not quite sure what she wants out of this election. I’d better go ahead and ask."
 
@@ -21,7 +25,9 @@ label caterina_d1:
 
     j_int "Oh no, is she on to me?!"
 
-    caterina.c "…But I suppose some relations simply do not come up in conversation! Now, what brings you to the Sistine today? I just received a letter from your cousin Julia—a quite glowing letter, of which I am much appreciative."
+    caterina.c "…But I suppose some relations simply do not come up in conversation! Now, what brings you to the Sistine today?"
+    
+    caterina.c "I just received a letter from your cousin Julia—a quite glowing letter, of which I am much appreciative."
     
     caterina.c "She mentioned some debts your family has accrued?"
 
@@ -37,7 +43,9 @@ label caterina_d1:
         
         julia "My family is, indeed, greatly in debt. Anything you or your family could do to help relieve those debts would be greatly appreciated."
 
-        caterina.c "Well, I could certainly talk to my uncle Ascanio about it. Julia Farnese told me all about your family’s noble history, and I would certainly like to help you all. We would, of course, require something in return."
+        caterina.c "Well, I could certainly talk to my uncle Ascanio about it."
+        
+        caterina.c "Julia Farnese wrote to me and told me all about your family’s noble history, and I would certainly like to help you all. We would, of course, require something in return."
 
         menu:
 
@@ -49,7 +57,9 @@ label caterina_d1:
         label .c3:
             julia "Would your uncle be in want of any sort of...companionship?"
 
-            caterina.c "Oh, well, I suppose I could ask, I’m not sure if he’ll be interested in a female companion… Come to think of it, does he swing in that…? Never mind. I’ll bring it up with him. She does look quite lovely."
+            caterina.c "Oh, well, I suppose I could ask, I’m not sure if he’ll be interested in a female companion…"
+            
+            caterina.c "Come to think of it, does he swing in that…? Never mind. I’ll bring it up with him. She does look quite lovely."
 
             julia "A good word with him would be much appreciated!"
 
@@ -67,6 +77,9 @@ label caterina_d1:
 
             julia "You have my gratitude."
 
+            $caterina.add_opinion(julia_name, 10)
+            $sforza.add_opinion(julia_name, 10)
+
             hide caterina_happy
 
             show caterina_concerned
@@ -81,7 +94,9 @@ label caterina_d1:
 
             caterina.c "That would, indeed, be interesting."
 
-            j_int "I could go so far as to offer to forge votes for Sforza, or for whoever the Cardinal chooses to support… No, not yet. That is an offer I could make another day. Telling them the votes is more than enough of a benefit for my alliance as of right now."
+            j_int "I could go so far as to offer to forge votes for Sforza, or for whoever the Cardinal chooses to support… No, not yet."
+            
+            j_int "That is an offer I could make another day. Telling them the votes is more than enough of a benefit for my alliance as of right now."
 
             julia "I’d be happy to provide vote tallies, as long as you and Cardinal Sforza keep in mind my family’s recent troubles. We are a noble family with much influence in Rome, and your help would not go unrewarded."
 
@@ -101,11 +116,17 @@ label caterina_d1:
 
         show caterina_concerned
 
-        caterina.c "Well, perhaps I shouldn’t share so many details, but King Charles has his eyes on Milan. Milan, of course, must remain under Sforza—and, by extension, Italian—control. My uncle Ascanio and I are here to ensure that."
+        $ caterina.add_opinion(julia_name, 10)
+
+        caterina.c "Well, perhaps I shouldn’t share so many details, but King Charles has his eyes on Milan."
+        
+        caterina.c "Milan, of course, must remain under Sforza—and, by extension, Italian—control. My uncle Ascanio and I are here to ensure that."
 
         julia "Ah, yes, naturally. Well, I suppose, then, that you are advocating for yourselves on the papal throne, or perhaps Borgia?"
 
-        caterina.c "Yes, well, Cardinal della Rovere is family by marriage, but he seems reluctant to renounce French support. I respect him greatly, but we must watch out for our own interests, just as I’m sure you will watch out for your own."
+        caterina.c "Yes, well, Cardinal della Rovere is family by marriage, but he seems reluctant to renounce French support."
+        
+        caterina.c "I respect him greatly, but we must watch out for our own interests, just as I’m sure you will watch out for your own."
 
         j_int "It’ll be hard to play both sides between Sforza-Borgia and della Rovere for long… Something to keep in mind."
 
