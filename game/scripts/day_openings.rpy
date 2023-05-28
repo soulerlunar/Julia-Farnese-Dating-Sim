@@ -3,6 +3,7 @@
 label pre_game_opening:
 
     scene bg vatican
+    play music choral
 
     j_int "It’s the first day of the papal election, and my first day as Dioneo Farnese."
     
@@ -35,6 +36,7 @@ label pre_game_opening:
     j_int "My brother is calling me. I assume that means we’re about to begin."
 
     show alessandro
+    play music dance
 
     julia "Shouldn’t you start getting in the habit of calling me Dioneo, not Julia? It would be bad for both of us if you slipped up at the wrong time."
 

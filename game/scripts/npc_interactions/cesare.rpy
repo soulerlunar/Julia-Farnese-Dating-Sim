@@ -10,6 +10,7 @@ label cesare_d1:
     show cesare
 
     cesare.c "Dioneo. I’d like to have a word."
+    play music royal
 
     j_int "Oh, shit."
 
@@ -171,6 +172,8 @@ label cesare_d1:
         
         j_int "I don’t want to hurt him, but my family’s fortunes must come first…"
 
+        stop music
+
         return
 
 
@@ -186,5 +189,6 @@ label cesare_d1:
         cesare.c "Well, regardless, good luck Ju— I mean, Dineo. And be safe."
 
         julia "Thank you. And you as well."
+        stop music
 
         return

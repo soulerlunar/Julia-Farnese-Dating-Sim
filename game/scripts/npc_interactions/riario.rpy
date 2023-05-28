@@ -15,6 +15,7 @@ label riario_d1:
     j_int "Anyway, it’s been a while since we’ve last seen each other, so hopefully he won’t recognize me, but he’s also one of my bosses now, so I’ll need to be careful."
 
     show riario
+    play music prince
 
     riario.c "Dioneo! Shouldn’t you be collecting votes? I think I heard one of the Maffeis looking for you."
 
@@ -54,6 +55,7 @@ label riario_d1:
 
         julia "Good day, Your Eminence."
 
+        stop music
         return
 
     label .c2:
@@ -123,6 +125,7 @@ label riario_d1:
 
             julia "Of course your Eminence. My apologies."
 
+        stop music
         return
     
     label .c3:
@@ -131,4 +134,5 @@ label riario_d1:
 
         julia "Of course your Eminence. My apologies."
 
+        stop music
         return

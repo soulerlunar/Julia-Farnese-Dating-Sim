@@ -17,6 +17,7 @@ label julius_d1:
     j_int "At the very least I should try to approach him. Perhaps I’ll get a better understanding of the man by speaking with him."
 
     show julius
+    play music prince
 
     j_int "Well. At least he’s not terrible-looking. And even in those Franciscan robes, he seems… strong."
 

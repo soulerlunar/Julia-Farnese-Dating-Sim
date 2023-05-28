@@ -143,3 +143,6 @@ label caterina_d1:
         caterina.c "He’s, well, he can be quite brash. I’m sure you understand he’s under a lot of pressure right now. We will speak again soon."
 
         narrator "She drops a florin in your hand and hurries off."
+
+        stop music
+        return

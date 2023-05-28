@@ -10,6 +10,7 @@ label borgia_d1:
     julia "Vice chancellor!"
 
     show borgia
+    play music royal
 
     borgia.c "Dioneo Farnese."
 
@@ -87,7 +88,7 @@ label borgia_d1:
 
         borgia.c "Keep me abreast of what goes on with the functionaries, and let me know if anyone gives you any troubles."
 
-        return
+        jump.conclusion
 
     label .c2:
 
@@ -109,4 +110,8 @@ label borgia_d1:
         
         j_int "And Borgia is more than competent and knows Alessandro well…this could be our chance for a cardinalship or an even greater benefice someday."
 
+        jump.conclusion
+
+    label .conclusion:
+        stop music fadeout 1.0
         return
