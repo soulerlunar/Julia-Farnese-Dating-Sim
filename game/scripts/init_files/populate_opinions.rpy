@@ -189,3 +189,7 @@ init 10 python:
         b_promise.make()
         s_promise = papabile.generate_promise(sforza, npc)
         s_promise.make()
+
+    #A defensive promise so Orsini doesn't immediately vote for anyone
+    orsini_defensive = defensive_vote.generate_promise(orsini, orsini)
+    orsini_defensive.make()

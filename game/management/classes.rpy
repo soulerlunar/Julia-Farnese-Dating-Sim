@@ -34,7 +34,7 @@ init python:
                 #If opinion does not exist, cannot be normalized
                 return False
 
-            opinion = self._opinions[person.name]
+            opinion = self._opinions[p_name]
             if opinion > 100:
                 self._opinions[p_name] = 100
                 return True

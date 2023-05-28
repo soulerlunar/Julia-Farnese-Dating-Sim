@@ -75,11 +75,11 @@ init 1 python:
     register_npc(carafa, True)
 
     #Gianbattista Orsini
-    orsini = Voter("orsini", Character("Cardinal Orsini"))
+    orsini = Voter("orsini", Character("Cardinal Orsini"), self_op = 100)
     register_npc(orsini, True)
 
     #Antonio Gentili
-    gentili = Voter("Gentili", Character("Cardinal Gentili"))
+    gentili = Voter("gentili", Character("Cardinal Gentili"))
     register_npc(gentili, True)
 
     #------
