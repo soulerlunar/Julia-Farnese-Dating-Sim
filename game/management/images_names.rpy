@@ -1,7 +1,8 @@
 init:
     #backgrounds
     image bg sistine = "backgrounds/surreal_sistine.png"
-    image bg farnesement = "backgrounds/farnesement.png"
+    image bg farnesement = "backgrounds/surreal_farnesement.png"
+    image bg vatican = "backgrounds/surreal_vatican.png"
 
     #Julius images
     image julius = "julius/julius.png"

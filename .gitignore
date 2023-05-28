@@ -182,4 +182,5 @@ log.txt
 errors.txt 
 traceback.txt
 game/.DS_Store
+game/saves/persistent
 .DS_Store
